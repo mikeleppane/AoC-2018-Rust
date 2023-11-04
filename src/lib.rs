@@ -12,12 +12,14 @@ pub enum Selector {
 
 pub enum OutputStatus {
     Failed,
+    Unsolved,
 }
 
 impl Display for OutputStatus {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             OutputStatus::Failed => write!(f, "Failed"),
+            OutputStatus::Unsolved => write!(f, "Unsolved"),
         }
     }
 }
