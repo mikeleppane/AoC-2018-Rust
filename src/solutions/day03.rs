@@ -18,7 +18,7 @@ impl Day03 {
 
 impl Runner for Day03 {
     fn name(&self) -> (usize, usize) {
-        (2018, 1)
+        (2018, 3)
     }
 
     fn parse(&mut self) {
