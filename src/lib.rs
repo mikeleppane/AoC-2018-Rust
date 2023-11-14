@@ -4,6 +4,8 @@ use std::path::Path;
 use std::str::FromStr;
 use std::time::{Duration, Instant};
 
+use itertools::Itertools;
+
 pub enum Selector {
     All,
     One(usize),
@@ -93,6 +95,19 @@ where
     }
 
     result
+}
+
+pub fn read_line_of<T: AsRef<Path>, U: FromStr>(pathname: T, sep: char) -> Vec<U>
+where
+    <U as FromStr>::Err: Debug,
+{
+    let line = read_to_string(pathname)
+        .expect("unable to open file")
+        .trim()
+        .to_owned();
+    let iter = line.split(sep);
+    iter.map(|x| x.parse::<U>().expect("unable to parse number"))
+        .collect_vec()
 }
 
 pub fn read_lines<T: AsRef<Path>>(pathname: T) -> Vec<String> {
