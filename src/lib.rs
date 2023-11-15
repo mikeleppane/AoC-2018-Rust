@@ -6,6 +6,9 @@ use std::time::{Duration, Instant};
 
 use itertools::Itertools;
 
+mod point;
+pub use point::*;
+
 pub enum Selector {
     All,
     One(usize),

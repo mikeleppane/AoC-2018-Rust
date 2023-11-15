@@ -24,7 +24,6 @@ pub struct Args {
     #[arg(short, long, default_value_t = true)]
     pub last: bool,
 }
-
 fn main() {
     let args = Args::parse();
 
